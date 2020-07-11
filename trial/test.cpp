@@ -17,4 +17,5 @@ int main()
     cout << (grade < 60) ? "fail" : "pass"; 
     cout << ((grade < 60) ? "fail" : "pass\n"); 
     
+    return 0;
 }
