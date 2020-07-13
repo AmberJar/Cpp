@@ -2,13 +2,14 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <stdio.h>
+
 using namespace std;
 
 bool fibon_elem(int, int & );
 bool print_sequence(int);
 bool is_size_ok(int size);
-template <typename elemType>
-void display_message(const string &msg, const vector<elemType> &vec);
+template <typename elemType> void display_message(const string &msg, const vector<elemType> &vec);
 
 int main()
 {   
@@ -100,8 +101,7 @@ bool print_sequence(int pos)
     return true;
 }
 
-template <typename elemType>
-void display_message(const string &msg, const vector<elemType> &vec)
+template <typename elemType> void display_message(const string &msg, const vector<elemType> &vec)
 {
     cout << msg;
     for (int ix =0; ix < vec.size(); ++ix)
@@ -141,4 +141,16 @@ void display_message(const string &msg, const vector<string> &vec)
 }
 
 void display_message(const string &, const vector<string>&);*/
+
+bool seq_elem(int pos, int &elem, const vector<int>* (*seq_ptr)(int))
+{
+    const vector<int> *pseq = seq_ptr(pos);
+
+    if (!pseq)
+        {elem = 0; return false;}
+    if (!seq_ptr)
+        display_message("Internal Error: seq_ptr is set to null!");
+    elem = (*pseq)[pos - 1];
+    return true;
+}
 
