@@ -111,7 +111,7 @@ template <typename elemType> void display_message(const string &msg, const vecto
     }
 }
 
-bool is_size_ok(int size)
+/*bool is_size_ok(int size)
 {
     const int max_size = 1024;
     const string msg("Requested size is not supported");
@@ -123,7 +123,7 @@ bool is_size_ok(int size)
     }
 
     return true;
-}
+}*/
 
 /*void display_message(const string &msg, const vector<int> &vec)
 {
@@ -142,15 +142,25 @@ void display_message(const string &msg, const vector<string> &vec)
 
 void display_message(const string &, const vector<string>&);*/
 
-bool seq_elem(int pos, int &elem, const vector<int>* (*seq_ptr)(int))
+/*bool seq_elem(int pos, int &elem, const vector<int>* (*seq_ptr)(int) = 0)
 {
     const vector<int> *pseq = seq_ptr(pos);
 
     if (!pseq)
         {elem = 0; return false;}
+
     if (!seq_ptr)
         display_message("Internal Error: seq_ptr is set to null!");
     elem = (*pseq)[pos - 1];
     return true;
-}
+}*/
 
+/*const vector<int>* (*seq_array[])(int) = {
+    fibon_seq, lucas_seq, pell_seq,
+    triang_seq, square_seq, pent_seq
+};*/
+
+enum ns_type {
+    ns_fibon, ns_lucas, ns_pell,
+    ns_triang, ns_square, ns_pent
+};
