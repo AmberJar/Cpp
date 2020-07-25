@@ -88,7 +88,7 @@ fibon_seq(int size)
     return &elems;
 }
 
-/*bool print_sequence(int pos)
+bool print_sequence(int pos)
 {
     if (pos <= 0 || pos > 1024)
     {
@@ -124,4 +124,4 @@ fibon_seq(int size)
     cout << endl;
 
     return true;
-}*/
+}

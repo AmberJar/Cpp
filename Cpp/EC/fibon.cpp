@@ -2,10 +2,14 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <stdio.h>
+
 using namespace std;
 
 bool fibon_elem(int, int & );
 bool print_sequence(int);
+bool is_size_ok(int size);
+template <typename elemType> void display_message(const string &msg, const vector<elemType> &vec);
 
 int main()
 {   
@@ -96,3 +100,67 @@ bool print_sequence(int pos)
 
     return true;
 }
+
+template <typename elemType> void display_message(const string &msg, const vector<elemType> &vec)
+{
+    cout << msg;
+    for (int ix =0; ix < vec.size(); ++ix)
+    {
+        elemType t = vec[x];
+        cout << t << ' ';
+    }
+}
+
+/*bool is_size_ok(int size)
+{
+    const int max_size = 1024;
+    const string msg("Requested size is not supported");
+
+    if (size <= 0 || size > max_size)
+    {
+        display_message(msg, size);
+        return false;
+    }
+
+    return true;
+}*/
+
+/*void display_message(const string &msg, const vector<int> &vec)
+{
+    cout << msg;
+    for (int ix = 0; ix < vec.size(); ++ix)
+        cout << vec[ix] << ' ';
+}
+
+void display_message(const string &msg, const vector<string> &vec)
+{
+    cout << msg;
+    for (int ix = 0; ix < vec.size(); ++ix)
+        cout << vec[ix] << ' ';
+    cout << '\n';
+}
+
+void display_message(const string &, const vector<string>&);*/
+
+/*bool seq_elem(int pos, int &elem, const vector<int>* (*seq_ptr)(int) = 0)
+{
+    const vector<int> *pseq = seq_ptr(pos);
+
+    if (!pseq)
+        {elem = 0; return false;}
+
+    if (!seq_ptr)
+        display_message("Internal Error: seq_ptr is set to null!");
+    elem = (*pseq)[pos - 1];
+    return true;
+}*/
+
+/*const vector<int>* (*seq_array[])(int) = {
+    fibon_seq, lucas_seq, pell_seq,
+    triang_seq, square_seq, pent_seq
+};*/
+
+enum ns_type {
+    ns_fibon, ns_lucas, ns_pell,
+    ns_triang, ns_square, ns_pent
+};
