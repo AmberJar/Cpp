@@ -29,7 +29,7 @@ class Array2{
             return *this;
         }
         ~Array2(){if (a != NULL) delete[]a;}
-        //返回值设为int的指针不用重载[]操作符
+        //返回值设为int的指针不用重载第二个[]操作符
         int *operator[](int i_){
             return a + i * j;
         }
